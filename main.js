@@ -7,6 +7,7 @@ const designBoard = () => {
       const inpEle = document.createElement('input');
       inpEle.setAttribute('type', 'text');
       inpEle.setAttribute('tabindex', '-1');
+      inpEle.setAttribute('autocomplete', 'off');
       inpEle.setAttribute('maxlength', '1');
       inpEle.setAttribute('id', 'char-' + (j + 1));
       inpEle.classList.add('inp-box');
@@ -69,6 +70,13 @@ const listenForEvents = () => {
         const char = event.target.getAttribute('id').split('-')[1];
 
         if (char !== '1') {
+          if (char === '5') { // if last char is deleted
+            const lastChar = parentEle.querySelector('#char-' + char);
+            if (lastChar.value) {
+              return;
+            }
+          }
+
           const inpEle = parentEle.querySelector('#char-' + (+char - 1));
           inpEle.value = '';
           const event = new Event('input', { bubbles: true });
