@@ -15,6 +15,7 @@ body {
   font-weight: 600;
   font-style: normal;
 }
+
 .inp-box {
   margin: 1px;
   margin-bottom: 4px;
@@ -26,6 +27,21 @@ body {
   background-color: #242222;
   caret-color: transparent;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .inp-box {
+    margin: 1px;
+    margin-bottom: 4px;
+    border: 2px solid #535353;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #242222;
+    caret-color: transparent;
+    color: white;
+  }
 }
 
 .inp-box:focus {
